@@ -30,7 +30,7 @@
 //# "Tries with frequencies for data mining",
 //# https://mathematicaforprediction.wordpress.com/2013/12/06/tries-with-frequencies-for-data-mining/ .
 
-package main.java.ml.TriesWithFrequencies;
+package ml.TriesWithFrequencies;
 
 import java.util.*;
 
@@ -484,8 +484,8 @@ public class TrieFunctions {
     //! @description Finds the paths from the root of a trie to the leaves.
     //! @param tr a trie object
     public static List<List<Map.Entry<String, Double>>> rootToLeafPaths(Trie tr) {
-        List<List<Map.Entry<String, Double>>> rows = new ArrayList();
-        List<Map.Entry<String, Double>> path = new ArrayList();
+        List<List<Map.Entry<String, Double>>> rows = new ArrayList<>();
+        List<Map.Entry<String, Double>> path = new ArrayList<>();
 
         toRows(rows, tr, path);
 
@@ -495,10 +495,10 @@ public class TrieFunctions {
     //! @description Converts a list of root-to-leaf paths into a list of root-to-leaf keys.
     //! @param paths a list of lists with Map.Entry elements
     public static List< List< String > > pathsKeys( List<List<Map.Entry<String, Double>>> paths ) {
-        List< List< String > > rows = new ArrayList();
+        List< List< String > > rows = new ArrayList<>();
 
         for (List<Map.Entry<String, Double>> ps : paths) {
-            List< String > keyPath = new ArrayList();
+            List< String > keyPath = new ArrayList<>();
 
             for (Map.Entry<String, Double> p : ps) {
                 keyPath.add( p.getKey() );
@@ -512,10 +512,10 @@ public class TrieFunctions {
     //! @description Converts a list of root-to-leaf paths into a list of root-to-leaf values.
     //! @param paths a list of lists with Map.Entry elements
     public static List< List< Double > > pathsValues( List<List<Map.Entry<String, Double>>> paths ) {
-        List< List< Double > > rows = new ArrayList();
+        List< List< Double > > rows = new ArrayList<>();
 
         for (List<Map.Entry<String, Double>> ps : paths) {
-            List< Double > valuePath = new ArrayList();
+            List< Double > valuePath = new ArrayList<>();
 
             for (Map.Entry<String, Double> p : ps) {
                 valuePath.add( p.getValue() );
@@ -530,10 +530,10 @@ public class TrieFunctions {
     //! @description Converts a list of root-to-leaf paths into a list of probabilities.
     //! @param paths a list of lists with Map.Entry elements
     public static List< Double > pathsProbabilities( List<List<Map.Entry<String, Double>>> paths ) {
-        List<Double> probs = new ArrayList();
+        List<Double> probs = new ArrayList<>();
 
         for (List<Map.Entry<String, Double>> ps : paths) {
-            Double pval = 1.0;
+            double pval = 1.0;
 
             for (Map.Entry<String, Double> p : ps) {
                 pval = pval * p.getValue();
@@ -636,7 +636,7 @@ public class TrieFunctions {
             List<String> keyPath = new ArrayList<>();
             for( Map.Entry<String,Double> p : ps ) { keyPath.add(p.getKey()); }
 
-            Double prob=1.0;
+            double prob=1.0;
             for( Map.Entry<String,Double> p : ps ) { prob = prob * p.getValue(); }
 
             Pair< List<String>, Double > wp = new Pair<>( keyPath, prob );
